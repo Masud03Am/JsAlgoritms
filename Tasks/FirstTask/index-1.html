@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск максимального элемента</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Поиск максимального элемента</h1>
+        <div class="form-group">
+            <label for="numberInput">Введите числа через запятую:</label>
+            <input type="text" class="form-control" id="numberInput" placeholder="Например: 3, 7, 2, 9, 4">
+        </div>
+        <button type="button" class="btn btn-primary mt-3" onclick="findMaxAndDisplay()">Найти максимальный элемент</button>
+        <p id="result" class="mt-3"></p>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JavaScript код -->
+    <script>
+        function findMaxAndDisplay() {
+            // Получаем введенные числа из поля ввода
+            const inputNumbers = document.getElementById("numberInput").value;
+            // Преобразуем строку в массив чисел
+            const numbersArray = inputNumbers.split(",").map(Number);
+            // Вызываем функцию findMax для поиска максимального числа
+            const maxNumber = findMax(numbersArray);
+            // Выводим результат на страницу
+            document.getElementById("result").innerText = "Максимальный элемент в массиве: " + maxNumber;
+        }
+
+        // Определение функции findMax
+        function findMax(arr) {
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+    </script>
+</body>
+</html>
